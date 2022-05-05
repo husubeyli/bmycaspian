@@ -5,7 +5,7 @@ ENV PYTHONUNBUFFERED 1
 RUN apt-get update && apt-get install -y gettext libgettextpo-dev \
 locales \
 locales-all \
-python3.7-dev
+# python3.7-dev
 ENV DEBUG False
 COPY requirements.txt /code/requirements.txt
 WORKDIR /code
