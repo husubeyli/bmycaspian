@@ -1,0 +1,204 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+   <!--=================================
+         Banner -->
+   <section class="pt-breadcrumb">
+      <div class="pt-bg-overley pt-opacity4" style="background-image: url('{{static.11.image_1.url}}');"></div>
+      <div class="container">
+         <div class="row">
+            <div class="col-sm-12">
+               <h1 class="pt-breadcrumb-title">{{static.17.title}}</h1>
+               <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                     <li class="breadcrumb-item"><a href="{% url 'core:index' %}"><i class="fas fa-home mr-2"></i>{% trans 'Home' %}</a></li>
+                     <li class="breadcrumb-item active" aria-current="page">{% trans 'Our Projects' %}</li>
+                  </ol>
+               </nav>
+            </div>
+         </div>
+      </div>
+   </section>
+   <!--=================================
+         Banner -->
+
+   <section class=" 1 py-0">
+      <div class="container pt-counter1 pt-bg-primary" style="margin-top: 100px;">
+         <div class="row">
+            <div class="col-sm-12">
+               <div class="pt-counter-top1 pt-counter">
+                  <div class="pt-bg-overley1 pt-opacity5" style="background-image: url('images/bg/02.png');">
+                  </div>
+                  <div class="row">
+                      {% for p in project_statistics %}
+                     <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0 text-center">
+                        <div class="pt-counter-contain mb-md-4 mb-0">
+                           <div class="pt-counter-img">
+                              <div class="pt-counter-media">
+                                 <i class="{{ p.icon }}"></i>
+                              </div>
+                           </div>
+                           <div class="pt-counter-info">
+                              <div class="pt-counter-num-prefix">
+                                 <h5 class="timer" data-to="{{ p.number }}" data-speed="5000">{{ p.number }}</h5>
+                                 <span class="pt-counter-prefix"></span>
+                              </div>
+                              <p class="pt-counter-description mb-0 text-white">{{ p.name }}</p>
+                           </div>
+                        </div>
+                     </div>
+                      {% endfor %}
+{#                     <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0 text-center">#}
+{#                        <div class="pt-counter-contain mb-md-4 mb-0">#}
+{#                           <div class="pt-counter-img">#}
+{#                              <div class="pt-counter-media">#}
+{#                                 <i class=" flaticon-009-crane"></i>#}
+{#                              </div>#}
+{#                           </div>#}
+{#                           <div class="pt-counter-info">#}
+{#                              <div class="pt-counter-num-prefix">#}
+{#                                 <h5 class="timer" data-to="5000" data-speed="5000">5000</h5>#}
+{#                                 <span class="pt-counter-prefix"></span>#}
+{#                              </div>#}
+{#                              <p class="pt-counter-description mb-0 text-white">Work Employed</p>#}
+{#                           </div>#}
+{#                        </div>#}
+{#                     </div>#}
+{#                     <div class="col-lg-3 col-sm-6 mb-4 mb-md-0 text-center">#}
+{#                        <div class="pt-counter-contain">#}
+{#                           <div class="pt-counter-img">#}
+{#                              <div class="pt-counter-media">#}
+{#                                 <i class=" flaticon-024-graphic-tool"></i>#}
+{#                              </div>#}
+{#                           </div>#}
+{#                           <div class="pt-counter-info">#}
+{#                              <div class="pt-counter-num-prefix">#}
+{#                                 <h5 class="timer" data-to="2500" data-speed="5000">2500</h5>#}
+{#                                 <span class="pt-counter-prefix"></span>#}
+{#                              </div>#}
+{#                              <p class="pt-counter-description mb-0 text-white">Happy Customers</p>#}
+{#                           </div>#}
+{#                        </div>#}
+{#                     </div>#}
+{#                     <div class="col-lg-3 col-sm-6 text-center">#}
+{#                        <div class="pt-counter-contain">#}
+{#                           <div class="pt-counter-img">#}
+{#                              <div class="pt-counter-media">#}
+{#                                 <i class=" flaticon-026-settings-2"></i>#}
+{#                              </div>#}
+{#                           </div>#}
+{#                           <div class="pt-counter-info">#}
+{#                              <div class="pt-counter-num-prefix">#}
+{#                                 <h5 class="timer" data-to="2800" data-speed="5000">2800</h5>#}
+{#                                 <span class="pt-counter-prefix"></span>#}
+{#                              </div>#}
+{#                              <p class="pt-counter-description mb-0 text-white">Painting Services</p>#}
+{#                           </div>#}
+{#                        </div>#}
+{#                     </div>#}
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <!--=================================
+         Portfolio-->
+   <section class="portfolio">
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="pt-filters">
+                  <div class="filters pt-filter-button-group">
+                     <ul>
+                        {% if filter_category %}
+                           <li class="pt-filter-btn">
+                              <a href="{{request.path}}">{% trans 'All' %}</a>
+                           </li>
+
+                           {% for category in categories %}
+                              <li class="pt-filter-btn {% if category.title == filter_category %}active{% endif %}">
+                                 <a href="{{request.path}}?category={{category.title}}">{{category.title}}</a>
+                              </li>
+                           {% endfor %}
+                        {% else %}
+                           <li class="pt-filter-btn active">
+                              <a href="{{request.path}}">{% trans 'All' %}</a>
+                           </li>
+
+                           {% for category in categories %}
+                              <li class="pt-filter-btn">
+                                 <a href="{{request.path}}?category={{category.title}}">{{category.title}}</a>
+                              </li>
+                           {% endfor %}
+                        {% endif %}
+                     </ul>
+                  </div>
+               </div>
+               <div class="pt-grid " data-next_items="4" data-initial_items="8" id="project-list">
+                  {% for project in projects %}
+                  <div class="pt-grid-item pt-filter-items  8  10  pt-col-3" id="project">
+                     <div class="pt-portfolio-block-one">
+                        <div class="pt-portfolio-img">
+                           <a href="{% url 'core:project-detail' slug=project.slug %}"><img src="{{project.image.url}}"
+                                 alt="architek-portfolio"></a>
+                        </div>
+                        <div class="pt-portfolio-info">
+                           {% for tag in project.tags.all %}
+                              <span class="pt-text-primary">{{tag.title}}</span>
+                           {% endfor %}
+                           <h5>{{project.title}}</h5>
+                           <div class="pt-btn-container">
+                              <a class="pt-button pt-btn-link" href="{% url 'core:project-detail' slug=project.slug %}">
+                                 <div class="pt-button-block">
+                                    <span class="pt-button-line-left pt-btn-line-left"></span>
+                                    <span class="pt-button-text text-white">{% trans 'Read more' %}</span>
+                                    <span class="pt-button-line-right pt-btn-line-right"></span>
+                                    <i class="ion ion-android-arrow-dropright pt-btn-icon  text-white"></i>
+                                 </div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  {% endfor %}
+               </div>
+            </div>
+         </div>
+{#         <div class="row mt-4">#}
+{#            <div class="col-sm-12 text-center">#}
+{#               <a class="pt-button pt-btn-flat" id="load-more">#}
+{#                  <div class="pt-button-block">#}
+{#                     <span class="pt-button-line-left"></span>#}
+{#                     <span class="pt-button-text">{% trans 'Load More' %}</span>#}
+{#                     <span class="pt-button-line-right"></span>#}
+{#                     <i class="ion ion-android-arrow-dropright pt-btn-icon"></i>#}
+{#                  </div>#}
+{#               </a>#}
+{#            </div>#}
+{#         </div>#}
+      </div>
+   </section>
+   <!--=================================
+         Portfolio-->
+
+{% endblock %}
+
+{% block js %}
+      <script>
+         let visible = 0
+         
+         projects = document.getElementById("project-list").children
+
+         $("#load-more").click(function (e) {
+            e.preventDefault();
+            visible = visible + 8
+            for (let i = visible; i < visible + 8; i++) {
+               project[i].hidden = false;
+            }
+         })
+      </script>
+
+{% endblock js%}

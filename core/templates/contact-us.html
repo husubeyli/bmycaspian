@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+   <!--=================================
+         Banner -->
+   <section class="pt-breadcrumb">
+      <div class="pt-bg-overley pt-opacity4" style="background-image: url('{{static.17.get_image_1_url}}');"></div>
+      <div class="container">
+         <div class="row">
+            <div class="col-sm-12">
+               <h1 class="pt-breadcrumb-title">{{static.17.title}}</h1>
+               <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                     <li class="breadcrumb-item"><a href="{% url 'core:index' %}"><i class="fas fa-home mr-2"></i>{% trans 'Home' %}</a></li>
+                     <li class="breadcrumb-item active" aria-current="page">{% trans 'Contact us' %}</li>
+                  </ol>
+               </nav>
+            </div>
+         </div>
+      </div>
+   </section>
+   <!--=================================
+         Banner -->
+   <!--=================================
+         Conatct -->
+   <section class="conatct">
+      <div class="container">
+         <div class="row">
+             {% for a in addresses %}
+            <div class="col-xl-4 col-lg-6 col-md-6 ">
+               <div class="pt-contact-box pt-contact-box-1">
+                  <div class="pt-contact-box-media">
+                     <img class="img-fluid" src="{{ a.image.url }}" alt="#">
+                  </div>
+                  <div class="pt-contact-box-info">
+                     <h4 class="pt-contact-box-title">{{ a.type_name }}</h4>
+                     <ul class="pt-contact-info">
+                        <li>
+                           <span>
+                              <i class="fa fa-map-marker"></i>
+                              <span>{{ a.full_address }}</span>
+                           </span>
+                        </li>
+                        <li>
+                           <span>
+                              <i class="fa fa-phone"></i>
+                              <span>
+                                 <a href="tel:{{ a.phone_number }}">{{ a.phone_number }}</a>
+                              </span>
+                           </span>
+                        </li>
+                        <li>
+                           <span>
+                              <i class="fa fa-envelope"></i>
+                              <span>
+                                 <a href="mailto:{{ a.email }}">{{ a.email }}</a>
+                              </span>
+                           </span>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+             {% endfor %}
+         </div>
+      </div>
+   </section>
+   <!--=================================
+         Conatct -->
+   <!--=================================
+         Conatct -->
+   <section class="pt-contact-form p-0">
+      <div class="container-fluid p-0">
+         <div class="row no-gutters">
+            <div class="col-xl-6">
+               <div class="p-4 p-md-5 pt-bg-light">
+                  <div class="pt-bg-overley"
+                     style="background-image: url({% static 'images/bg/03.png' %}); background-size: cover; background-position: center center;opacity: 0.1;">
+                  </div>
+                  <div class="pt-section-title-box text-left">
+                     <span class="pt-section-sub-title">{% trans 'Get Quote' %}</span>
+                     <h2 class="pt-section-title">{% trans 'Request A Quote' %}</h2>
+                  </div>
+                  <form class="quote-from" method="POST" action="{% url 'core:contact' %}">
+                     {% csrf_token %}
+                     <div class="row">
+                        <div class="col-md-6">
+                           <div class="form-group">
+                              <!-- <input type="text" class="form-control" id="exampleInputName" placeholder="Enter name"> -->
+                              {% render_field form.name class="form-control" id="exampleInputName" placeholder="Enter name" %}
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="form-group">
+                              <!-- <input type="email" class="form-control" id="Email" placeholder="Enter email"> -->
+                              {% render_field form.email class="form-control" id="Email" placeholder="Enter email" %}
+                           </div>
+                        </div>
+                        <div class="col-md-12">
+                           <div class="form-group">
+                              <!-- <input type="text" class="form-control" id="Subject1" placeholder="Enter subject"> -->
+                              {% render_field form.subject class="form-control" id="Subject1" placeholder="Enter subject" %}
+                           </div>
+                        </div>
+                        <div class="col-md-12">
+                           <div class="form-group">
+                              <!-- <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"
+                                 placeholder="Enter your message"></textarea> -->
+                                 {% render_field form.message class="form-control" id="exampleFormControlTextarea1" rows="6" placeholder="Enter your message"%}           
+                           </div>
+                        </div>
+                        <div class="col-md-12">
+                           <div class="form-group">
+                              <button type="submit" class="btn btn-primary">{% trans 'Send Message' %}</button>
+                           </div>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+            <div class="col-xl-6">
+               <div class="map1">
+
+                  <iframe src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=sdn%20business%20center+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/truck-gps/" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <!--=================================
+         Conatct -->
+
+{% endblock %}

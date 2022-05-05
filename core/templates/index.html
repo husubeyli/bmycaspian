@@ -1,0 +1,383 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load element_by_order %}
+{% load i18n %}
+
+{% block content %}
+   <!--================================= Banner -->
+
+   <p class="rs-p-wp-fix"></p>
+   <rs-module-wrap id="rev_slider_1_1_wrapper" data-alias="slider-1-1" data-source="gallery"
+      style="background:transparent;padding:0;margin:0px auto;margin-top:0;margin-bottom:0;">
+      <rs-module id="rev_slider_1_1" style="display:none;" data-version="6.2.2">
+         <rs-slides>
+            <rs-slide data-key="rs-1" data-title="Slide" data-thumb="{% static 'rev-slider/assets/bg-21-50x100.jpg' %}"
+               data-anim="ei:d;eo:d;s:600;r:0;t:fade;sl:0;">
+               <img src="{{static.0.get_image_1_url}}" title="bg-21.jpg" width="1920" height="1080" class="rev-slidebg"
+                  data-no-retina>
+               <rs-layer id="slider-1-slide-1-layer-2" data-type="text" data-color="#002155" data-rsp_ch="on"
+                  data-xy="xo:45px,40px,30px,15px;y:m;yo:-17px,-13px,0,-22px;"
+                  data-text="w:normal;s:92,72,72,50;l:92,72,72,50;fw:600;" data-frame_0="x:50,39,29,17;"
+                  data-frame_1="st:900;sp:1000;" data-frame_999="o:0;st:w;"
+                  style="z-index:10;font-family:Jost, sans-serif; font-size:60px!important;">{{static.0.title|safe}}
+               </rs-layer>
+               <!--
+                     -->
+               <rs-layer id="slider-1-slide-1-layer-3" data-type="text" data-color="#565969" data-rsp_ch="on"
+                  data-xy="xo:45px,40px,30px,15px;y:m;yo:108px,95px,76px,45px;"
+                  data-text="w:normal;s:16,16,16,11;l:32,32,32,24;" data-dim="minh:0px,none,none,none;"
+                  data-vbility="t,t,f,f" data-frame_0="x:50,39,29,17;" data-frame_1="st:1200;sp:1000;"
+                  data-frame_999="o:0;st:w;" style="z-index:10;font-family:Jost, sans-serif;">{{static.0.subtitle|safe}}
+               </rs-layer>
+               <rs-layer id="slider-1-slide-1-layer-4" class="rev-btn" data-type="button" data-rsp_ch="on"
+                  data-xy="xo:45px,40px,30px,15px;y:m;yo:204px,180px,125px,63px;"
+                  data-text="w:normal;s:16,16,16,18;l:32,30,32,30;" data-dim="minh:0px,none,none,none;"
+                  data-padding="t:12,9,7,4;r:32,25,19,12;b:12,9,7,4;l:32,25,19,12;" data-frame_0="x:50,39,29,17;"
+                  data-frame_1="st:1500;sp:1000;" data-frame_999="o:0;st:w;"
+                  data-frame_hover="bgc:#002155;bor:0px,0px,0px,0px;sp:200;e:power1.inOut;"
+                  style="z-index:9;background-color:#ff631b;font-family:Jost, sans-serif;">{% trans 'Explore More' %}
+               </rs-layer>
+               <!--
+                     -->
+               <rs-layer id="slider-1-slide-1-layer-5" data-type="text" data-color="#ff631b" data-rsp_ch="on"
+                  data-xy="xo:50px,40px,30px,15px;y:m;yo:-137px,-107px,-97px,-100px;"
+                  data-text="w:normal;s:16,16,16,18;l:30,32,32,30;fw:600;" data-padding="l:10,8,6,4;"
+                  data-border="bos:solid;boc:#ff5e14;bow:0,0,0,2px;" data-frame_0="x:50,39,29,17;"
+                  data-frame_1="st:600;sp:1000;" data-frame_999="o:0;st:w;"
+                  style="z-index:12;font-family:Jost, sans-serif;">{{static.0.surtitle|safe}} </rs-layer>
+               <!--
+                     -->
+               <rs-layer id="slider-1-slide-1-layer-6" class="rev-btn" data-type="button" data-rsp_ch="on"
+                  data-xy="xo:220px,199px,170px,154px;y:m;yo:204px,180px,125px,63px;"
+                  data-text="w:normal;s:16,16,16,18;l:32,30,32,30;" data-dim="minh:0px,none,none,none;"
+                  data-padding="t:12,9,7,4;r:32,25,19,12;b:12,9,7,4;l:32,25,19,12;" data-frame_0="x:50,39,29,17;"
+                  data-frame_1="st:1800;sp:1000;" data-frame_999="o:0;st:w;"
+                  data-frame_hover="bgc:#ff631b;bor:0px,0px,0px,0px;sp:200;e:power1.inOut;"
+                  style="z-index:8;background-color:#002155;font-family:Jost, sans-serif; margin-left:50px;">{% trans 'Get In Touch' %}<br />
+               </rs-layer>
+               <!--
+                     -->
+            </rs-slide>
+            <rs-slide data-key="rs-2" data-title="Slide" data-thumb="{% static 'rev-slider/assets/bg-3343-50x100.jpg' %}"
+               data-anim="ei:d;eo:d;s:600;r:0;t:fade;sl:0;">
+               <img src="{{static.1.get_image_1_url}}" title="bg-3343" width="1920" height="1080" class="rev-slidebg"
+                  data-no-retina>
+               <!--
+                     -->
+               <rs-layer id="slider-1-slide-2-layer-2" data-type="text" data-color="#002155" data-rsp_ch="on"
+                  data-xy="x:r;xo:50px,40px,30px,15px;y:m;yo:-17px,-13px,0,-3px;"
+                  data-text="w:normal;s:92,72,62,42;l:92,72,62,42;fw:600;a:right;" data-frame_0="x:50,39,29,17;"
+                  data-frame_1="st:900;sp:1000;" data-frame_999="o:0;st:w;"
+                  style="z-index:10;font-family:Jost, sans-serif;text-transform:capitalize;">{{static.1.title|safe}}
+               </rs-layer>
+               <!--
+                     -->
+               <rs-layer id="slider-1-slide-2-layer-3" data-type="text" data-color="#565969" data-rsp_ch="on"
+                  data-xy="x:r;xo:50px,40px,30px,15px;y:m;yo:108px,85px,48px,39px;"
+                  data-text="w:normal;s:16,12,16,11;l:32,25,32,22;a:right;" data-dim="minh:0px,none,none,none;"
+                  data-vbility="t,t,f,f" data-frame_0="x:50,39,29,17;" data-frame_1="st:1200;sp:1000;"
+                  data-frame_999="o:0;st:w;" style="z-index:11;font-family:Jost, sans-serif;">{{static.1.subtitle|safe}}
+               </rs-layer>
+               <!--
+                     -->
+               <rs-layer id="slider-1-slide-2-layer-4" class="rev-btn" data-type="button" data-rsp_ch="on"
+                  data-xy="x:r;xo:50px,40px,30px,15px;y:m;yo:204px,160px,125px,83px;"
+                  data-text="w:normal;s:16,12,16,18;l:32,25,32,30;a:center;" data-dim="minh:0px,none,none,none;"
+                  data-padding="t:12,9,7,4;r:32,25,19,12;b:12,9,7,4;l:32,25,19,12;" data-frame_0="x:50,39,29,17;"
+                  data-frame_1="st:1500;sp:1000;" data-frame_999="o:0;st:w;"
+                  data-frame_hover="bgc:#002155;bor:0px,0px,0px,0px;sp:200;e:power1.inOut;"
+                  style="z-index:9;background-color:#ff631b;font-family:Jost, sans-serif;">{% trans 'Explore More' %}<br />
+               </rs-layer>
+               <!--
+                     -->
+               <rs-layer id="slider-1-slide-2-layer-5" data-type="text" data-color="#ff631b" data-rsp_ch="on"
+                  data-xy="x:r;xo:50px,40px,30px,15px;y:m;yo:-137px,-107px,-87px,-66px;"
+                  data-text="w:normal;s:16,12,16,18;l:30,23,32,22;fw:600;" data-padding="l:10,8,6,4;"
+                  data-border="bos:solid;boc:#ff631b;bow:0,0,0,2px;" data-frame_0="x:50,39,29,17;"
+                  data-frame_1="st:600;sp:1000;" data-frame_999="o:0;st:w;"
+                  style="z-index:12;font-family:Jost, sans-serif;text-transform:capitalize;">{{static.1.surtitle|safe}}
+               </rs-layer>
+               <!--
+                     -->
+               <rs-layer id="slider-1-slide-2-layer-6" class="rev-btn" data-type="button" data-rsp_ch="on"
+                  data-xy="x:r;xo:246px,190px,187px,163px;y:m;yo:204px,160px,125px,83px;"
+                  data-text="w:normal;s:16,12,16,18;l:32,25,32,30;a:center;" data-dim="minh:0px,none,none,none;"
+                  data-padding="t:12,9,7,4;r:32,25,19,12;b:12,9,7,4;l:32,25,19,12;" data-frame_0="x:50,39,29,17;"
+                  data-frame_1="st:1800;sp:1000;" data-frame_999="o:0;st:w;"
+                  data-frame_hover="bgc:#ff631b;bor:0px,0px,0px,0px;sp:200;e:power1.inOut;"
+                  style="z-index:8;background-color:#002155;font-family:Jost, sans-serif;">{% trans 'Get In Touch' %}<br />
+               </rs-layer>
+               <!--
+                     -->
+            </rs-slide>
+            <rs-slide data-key="rs-3" data-title="Slide" data-thumb="rev-slider/assets/bg-333-50x100.jpg"
+               data-anim="ei:d;eo:d;s:600;r:0;t:fade;sl:0;">
+               <img src="{{static.2.get_image_1_url}}" title="bg-333" width="1920" height="1080" class="rev-slidebg"
+                  data-no-retina>
+               <!--
+                     -->
+               <rs-layer id="slider-1-slide-3-layer-2" data-type="text" data-rsp_ch="on"
+                  data-xy="xo:50px,40px,30px,15px;y:m;yo:-17px,-13px,0,-2px;"
+                  data-text="w:normal;s:92,72,56,42;l:92,72,60,48;fw:600;" data-frame_0="x:50,39,29,17;"
+                  data-frame_1="st:900;sp:1000;" data-frame_999="o:0;st:w;"
+                  style="z-index:10;font-family:Jost, sans-serif;text-transform:capitalize;">{{static.2.title|safe}}
+               </rs-layer>
+               <!--
+                     -->
+               <rs-layer id="slider-1-slide-3-layer-3" data-type="text" data-rsp_ch="on"
+                  data-xy="xo:50px,40px,30px,15px;y:m;yo:118px,92px,28px,37px;"
+                  data-text="w:normal;s:16,12,16,11;l:32,25,32,22;" data-dim="minh:0px,none,none,none;"
+                  data-vbility="t,t,f,f" data-frame_0="x:50,39,29,17;" data-frame_1="st:1200;sp:1000;"
+                  data-frame_999="o:0;st:w;" style="z-index:11;font-family:Jost, sans-serif;">{{static.2.subtitle|safe}}
+               </rs-layer>
+               <!--
+                     -->
+               <rs-layer id="slider-1-slide-3-layer-4" class="rev-btn" data-type="button" data-rsp_ch="on"
+                  data-xy="xo:50px,40px,30px,15px;y:m;yo:214px,168px,115px,84px;"
+                  data-text="w:normal;s:16,12,16,18;l:32,25,32,30;" data-dim="minh:0px,none,none,none;"
+                  data-padding="t:12,9,7,4;r:32,25,19,12;b:12,9,7,4;l:32,25,19,12;" data-frame_0="x:50,39,29,17;"
+                  data-frame_1="st:1500;sp:1000;" data-frame_999="o:0;st:w;"
+                  data-frame_hover="bgc:#002155;bor:0px,0px,0px,0px;sp:200;e:power1.inOut;"
+                  style="z-index:9;background-color:#ff5e14;font-family:Jost, sans-serif;">{% trans 'Explore More' %}
+               </rs-layer>
+               <!--
+                     -->
+               <rs-layer id="slider-1-slide-3-layer-5" data-type="text" data-rsp_ch="on"
+                  data-xy="xo:50px,40px,30px,15px;y:m;yo:-127px,-100px,-87px,-74px;"
+                  data-text="w:normal;s:16,12,16,18;l:30,23,26,24;fw:600;" data-padding="l:10,8,6,4;"
+                  data-border="bos:solid;boc:#ff631b;bow:0,0,0,2px;" data-frame_0="x:50,39,29,17;"
+                  data-frame_1="st:600;sp:1000;" data-frame_999="o:0;st:w;"
+                  style="z-index:12;font-family:Jost, sans-serif;text-transform:capitalize;">{{static.2.surtitle|safe}}
+               </rs-layer>
+               <!--
+                     -->
+               <rs-layer id="slider-1-slide-3-layer-6" class="rev-btn" data-type="button" data-rsp_ch="on"
+                  data-xy="xo:245px,189px,193px,164px;y:m;yo:214px,168px,115px,84px;"
+                  data-text="w:normal;s:16,12,16,18;l:32,25,32,30;" data-dim="minh:0px,none,none,none;"
+                  data-padding="t:12,9,7,4;r:32,25,19,12;b:12,9,7,4;l:32,25,19,12;" data-frame_0="x:50,39,29,17;"
+                  data-frame_1="st:1800;sp:1000;" data-frame_999="o:0;st:w;"
+                  data-frame_hover="bgc:#ff5e14;bor:0px,0px,0px,0px;sp:200;e:power1.inOut;"
+                  style="z-index:8;background-color:#002155;font-family:Jost, sans-serif;">{% trans 'Get In Touch' %}<br />
+               </rs-layer>
+               <!--
+                     -->
+            </rs-slide>
+         </rs-slides>
+         <rs-progress class="rs-bottom" style="visibility: hidden !important;"></rs-progress>
+      </rs-module>
+   </rs-module-wrap>
+   <!--=================================
+         Banner -->
+   <!--=================================
+         About us -->
+   <section class="about-us">
+      <div class="container">
+         <div class="row ">
+            <div class="col-xl-6">
+               <div class="pt-big-title mt-4">
+                  <h2 class="pt-big-title1 wow animate__fadeInRight" data-wow-duration="1s" data-wow-delay="1s">{% trans 'ABOUT US' %}
+                  </h2>
+               </div>
+               <div class="pt-section-title-box">
+                  <span class="pt-section-sub-title">{{static.3.surtitle|safe}}</span>
+                  <h2 class="pt-section-title">{{static.3.title|safe}}</h2>
+                  <p class="pt-section-description">{{static.3.subtitle|safe}}
+                  </p>
+               </div>
+               <ul class="icon-list-items">
+               {% comment %} {% for bullet in static.3.bullet_points %}
+                  <li class="icon-list-item">
+                     <span class="icon-list-icon">
+                        <i aria-hidden="true" class="fas fa-check"></i>
+                     </span>
+                     <span class="icon-list-text">{{ bullet }}</span>
+                  </li>
+               {% endfor %} {% endcomment %}
+               {% for bullet in static.3.bullets_points.all %}
+                  <li class="icon-list-item">
+                     <span class="icon-list-icon">
+                        <i aria-hidden="true" class="fas fa-check"></i>
+                     </span>
+                     <span class="icon-list-text">{{ bullet }}</span>
+                  </li>
+               {% endfor %}
+               </ul>
+               <div class="mt-5 mb-xl-0 mb-5">
+                  <a class="pt-button pt-btn-flat" href="{% url 'core:about' %}">
+                     <div class="pt-button-block">
+                        <span class="pt-button-line-left"></span>
+                        <span class="pt-button-text">{% trans 'Read More' %}</span>
+                        <span class="pt-button-line-right"></span>
+                        <i class="ion ion-android-arrow-dropright pt-btn-icon"></i>
+                     </div>
+                  </a>
+               </div>
+            </div>
+            <div class="col-xl-6">
+               <div class="row">
+                  <div class="col-lg-6 col-md-6 col-12 d-inline-block">
+                     <div id="44c55" class="content__image-wrap content__image-wrap--half" data-color="#FF631B"
+                        data-direction="lr">
+                        <img class="img-fluid" src="{{static.3.get_image_1_url}}" alt="demo-img">
+                     </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-12 mt-md-4 mt-4">
+                     <div id="44c56" class="content__image-wrap content__image-wrap--half" data-color="#FF631B"
+                        data-direction="lr">
+                        {% if static.3.get_image_2_url %}
+                           <img class="img-fluid" src="{{static.3.get_image_2_url}}" alt="demo-img">
+                        {% endif %}
+                     </div>
+                  </div>
+                  {% if settings.years_experience != 0 %}
+                  <div class="counter single-counter">
+                     <h5 class="timer" data-to="{{settings.years_experience}}" data-speed="5000">{{ settings.years_experience }}</h5>
+                     <span class="pt-counter-prefix">+</span>
+                     <label>{% trans 'YEARS EXPERIENCE' %}</label>
+                  </div>
+                  {% endif %}
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <!--=================================
+         About us -->
+   <!--=================================
+         Video Section -->
+   <section class=" video pt-bg-dark  section-style">
+      <div class="pt-bg-overley pt-opacity1" style="background-image: url({{settings.promotion_video_image.url}});">
+      </div>
+      <div class="container">
+         <div class="row d-flex justify-content-center">
+            <div class="col-12 pb-5"></div>
+            <div class="col-lg-4 text-center py-5">
+               <div class="pt-popup-video-block">
+                  <div class="pt-video-icon">
+                     <a href="{{settings.promotion_video_url}}" class="pt-video popup-youtube">
+                        <i aria-hidden="true" class="ion ion-play"></i></a>
+                  </div>
+               </div>
+            </div>
+            <div class="col-12 pt-5"></div>
+         </div>
+      </div>
+      <div class="pt-section-big-title bottom text-center wow animate__fadeInUp" data-wow-duration="1s"
+         data-wow-delay="1s">
+         <h2 class="big-heading-title">{% trans 'Watch Our Video' %}</h2>
+      </div>
+   </section>
+   <!--=================================
+            Video Section -->
+   <!--=================================
+         Recent Projects -->
+   <section class="recent-projects pt-bg-dark section-style wow animate__fadeIn" data-wow-delay="0.2s">
+      <div class="pt-bg-overley1" style="background-image: url({% static 'images/bg/01.png' %});"></div>
+      <div class="container">
+      <div class="row">
+            <div class="col-xl-6 z-index-1">
+               <div class="pt-section-title-box text-xl-left text-center  mb-md-0">
+                  <span class="pt-section-sub-title text-white border-white">{{static.4.surtitle|safe}}</span>
+                  <h2 class="pt-section-title text-white">{{static.4.title|safe}}</h2>
+                  <p class="pt-section-description text-white">{{static.4.subtitle|safe}}
+                  </p>
+               </div>
+            </div>
+            <div class="col-xl-6 d-xl-flex justify-content-xl-end align-items-center text-center">
+               <div class="pt-btn-container">
+                  <a class="pt-button pt-btn-flat pt-bg-primary " href="{% url 'core:projects' %}">
+                     <div class="pt-button-block">
+                        <span class="pt-button-line-left"></span>
+                        <span class="pt-button-text">{% trans 'View More' %}</span>
+                        <span class="pt-button-line-right"></span>
+                        <i class="ion ion-android-arrow-dropright pt-btn-icon"></i>
+                     </div>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="container-pt pt-4">
+         <div class="row">
+            <div class="col-sm-12">
+               <div class="owl-carousel" data-dots="false" data-nav="false" data-desk_num="4" data-lap_num="2"
+                  data-tab_num="2" data-mob_num="1" data-mob_sm="1" data-autoplay="true" data-loop="true"
+                  data-margin="30">
+                  {% for project in projects %}
+                  <div class="item">
+                     <div class="pt-portfolio-block">
+                        <div class="pt-portfolio-img">
+                           <img class="img-fluid" src="{{project.image.url}}" alt="">
+                           <a href="{% url 'core:project-detail' slug=project.slug %}">
+                              <div class="pt-portfolio-icon">
+                                 <i class="ion ion-android-add"></i>
+                              </div>
+                           </a>
+                        </div>
+                        <div class="pt-portfolio-info">
+                           {% for tag in project.tags.all %}
+                           <span>{{tag}}</span>
+                           {% endfor %}
+                           <h4 class="pt-portfolio-title">
+                              <a class="text-white" href="{% url 'core:project-detail' slug=project.slug %}">{{project.title}}</a>
+                           </h4>
+                        </div>
+                     </div>
+                  </div>
+                  {% endfor %}
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="pt-section-big-title bottom text-center wow animate__fadeInUp " data-wow-duration="1s"
+         data-wow-delay="1s">
+         <h2 class="big-heading-title">{% trans 'Our Work' %}</h2>
+      </div>
+   </section>
+   <!--=================================
+            Recent Projects -->
+   <!--=================================
+         Client-->
+   <section class="client pt-bg-dark">
+      <div class="pt-bg-overley1" style="background-image: url({% static 'images/bg/04.png' %});"></div>
+      <div class="container">
+         <div class="row">
+            <div class="pt-section-big-title  text-center wow animate__fadeInUp" data-wow-duration="1s"
+               data-wow-delay="1s">
+               <h2 class="big-heading-title">{% trans 'CUSTOMER' %}</h2>
+            </div>
+            <div class="col-lg-3"> </div>
+            <div class="col-xl-6  text-center">
+               <div class="pt-section-title-box">
+                  <span class="pt-section-sub-title text-white border-white">{{static.5.surtitle|safe}}</span>
+                  <h2 class="pt-section-title text-white">{{static.5.title|safe}}</h2>
+                  <p class="pt-section-description text-white">{{static.5.subtitle|safe}}
+                  </p>
+               </div>
+            </div>
+            <div class="col-lg-3"> </div>
+         </div>
+         <div class="row text-center">
+            {% for client in clients %}
+               <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="pt-client-grid">
+                     {% if client.get_image_url %}
+                        <img class="img-fluid pt-client-img" src="{{client.get_image_url}}" alt="pt-client-img">
+                     {% endif %}
+                     <a href="{{ client.url }}">
+                        {% if client.get_image_2_url %}
+                           <img class="img-fluid pt-client-hover-img" src="{{client.get_image_2_url}}" alt="pt-client-img">
+                        {% endif %}
+                     </a>
+                  </div>
+               </div>
+            {% endfor %}
+         </div>
+      </div>
+   </section>
+   <!--=================================
+            Client-->
+
+{% endblock content %}
+
+  

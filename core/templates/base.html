@@ -1,0 +1,354 @@
+{% load static %}
+{% load get_url %}
+{% load i18n %}
+{% get_current_language as language_code %}
+{% get_available_languages as LANGUAGES %}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+   <!-- Global site tag (gtag.js) - Google Analytics -->
+   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4PCHRNGJTM"></script>
+   <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+
+   gtag('config', 'G-4PCHRNGJTM');
+   </script>
+   <meta charset="utf-8">
+   <meta name="keywords" content="HTML5 Template" />
+   <meta name="description" content="Architeck HTML5 Template" />
+   <meta name="author" content="architeck" />
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <title>{{settings.company_name}}</title>
+   <!-- Favicon -->
+   <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" />
+   <!-- CSS bootstrap-->
+   <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}" />
+   <!-- REVOLUTION STYLE SHEETS -->
+   <link rel="stylesheet" type="text/css" href="{% static 'rev-slider/css/rs6.css' %}">
+   <!--  Style -->
+   <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+   <!--  Responsive -->
+   <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
+   <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link rel="stylesheet" href="{% static 'css/flag-icon.css' %}">
+
+   <style>
+
+   </style>
+
+</head>
+
+<body>
+   <!--=================================
+         Header -->
+   <header id="pt-header" class="pt-header-style-2 pt-has-sticky">
+      <div class="row no-gutters">
+         <div class="col-lg-2 col-md-4">
+            <a class="navbar-brand" href="{% url 'core:index' %}">
+               <img class="img-fluid logo" src="{{settings.white_logo.url}}" alt="architeck">
+            </a>
+         </div>
+         <div class="col-lg-10 col-md-8">
+            <div class="pt-top-header">
+               <div class="row no-gutters">
+                  <div class="col-lg-3 col-xl-2 d-lg-none">
+                     <div class="pt-header-social ">
+                        <ul>
+                           <li><a href="{{ settings.facebook_address }}"><i class="fab fa-facebook-f"></i></a></li>
+                           <li><a href="{{ settings.instagram_address }}"><i class="fab fa-instagram"></i></a></li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="col-lg-12 col-xl-12">
+                     <div class="pt-header-contact text-right">
+                        <ul>
+
+                                   <li class="nav-item dropdown ">
+                                    <a class="nav-link dropdown-toggle" style="padding: 0;" href="/{{ LANGUAGES.0.0 }}/{{ request.get_full_path|slice:'4:' }}" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="flag-icon flag-icon-az"> </span> {{ LANGUAGES.0.1 }}</a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdown09">
+                                        <a class="dropdown-item" href="/{{ LANGUAGES.0.0 }}/{{ request.get_full_path|slice:'4:' }}" style="color: black;"><span class="flag-icon flag-icon-az"> </span>  {{ LANGUAGES.0.1 }}</a>
+                                        <a class="dropdown-item" href="/{{ LANGUAGES.1.0 }}/{{ request.get_full_path|slice:'4:' }}" style="color: black;"><span class="flag-icon flag-icon-us"> </span>  {{ LANGUAGES.1.1 }}</a>
+                                    </div>
+                                </li>
+                           <li>
+                              <a href="tel:{{settings.phone}}"><i class="fas fa-phone"></i>
+                                 
+                                 <span>{{settings.phone}}</span>
+                              </a>
+                           </li>
+                           <li>
+                              <a href="mailto:{{settings.email}}"><i
+                                    class="fas fa-envelope"></i><span>{% if settings.email %}{{settings.email}}{% endif %}</span></a>
+                           </li>
+                           <li>
+                                 <i class="far fa-clock"></i>
+                                 <a href="#">Mon - Sat 9:00 - 18:00, Sunday</a>
+                              </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="pt-bottom-header">
+               <div class="row no-gutters">
+                  <div class="col-lg-12">
+                     <nav class="navbar navbar-expand-lg navbar-light">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                           data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                           aria-expanded="false" aria-label="Toggle navigation">
+                           <i class="fas fa-bars"></i>
+                        </button>
+                        <div style="max-height: unset;" class="collapse navbar-collapse" id="navbarSupportedContent">
+                           <div id="pt-menu-contain" class="pt-menu-contain">
+                              <ul id="pt-main-menu" class="navbar-nav ml-auto">
+                                {% for element in navbar %}
+                                 <li class="nav-item {% if request.path == element.url|get_url %}active{% endif %}">
+                                    <a href="{{element.url}}" aria-current="page">{{element.title}}</a></i>
+                                 </li>
+                                 {% endfor %}
+                                <li class="nav-item dropdown for-mobile-lang">
+                                    <a class="nav-link dropdown-toggle dropdown-toggle-mobile" style="padding: 0;" href="/{{ LANGUAGES.0.0 }}/{{ request.get_full_path|slice:'4:' }}" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="flag-icon flag-icon-az"> </span> {{ LANGUAGES.0.1 }}</a>
+                                    <div class="dropdown-menu dropdown-menu-mobile" aria-labelledby="dropdown09">
+                                        <a class="dropdown-item" href="/{{ LANGUAGES.0.0 }}/{{ request.get_full_path|slice:'4:' }}" style="color: black;"><span class="flag-icon flag-icon-az"> </span>  {{ LANGUAGES.0.1 }}</a>
+                                        <a class="dropdown-item" href="/{{ LANGUAGES.1.0 }}/{{ request.get_full_path|slice:'4:' }}" style="color: black;"><span class="flag-icon flag-icon-us"> </span>  {{ LANGUAGES.1.1 }}</a>
+                                    </div>
+                                </li>
+                              </ul>
+                           </div>
+                        </div>
+                        <div class="pt-header-info-box">
+                           <div class="pt-menu-search-block">
+                              <a href="javascript:void(0)" id="pt-seacrh-btn"><i class="fa fa-search"></i></a>
+                              <div class="pt-search-form">
+                                 <form role="search" method="POST" class="search-form"
+                                    action="{% url 'core:search_result' %}">
+                                     {% csrf_token %}
+                                    <label>
+                                       <span class="screen-reader-text">{% trans 'Search for' %}:</span>
+                                       <input type="search" class="search-field" placeholder="{% trans 'Search' %} ..." value=""
+                                          name="searched">
+                                    </label>
+                                    <button type="submit" class="search-submit"><span
+                                          class="screen-reader-text">{% trans 'Search' %}</span></button>
+                                 </form>
+                              </div>
+                           </div>
+                        </div>
+                     </nav>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </header>
+   <!--=================================
+         Header -->
+   <!--Whatsapp-->
+   <button class="whatsapp__box" style="display: grid;">
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+   </button>
+   <div class="whatsapp_chat_box" style="display: none;">
+      <div class="whatsapp_chatbox_header">
+         <div class="img__circle">
+            <img style="width: 60%; height: 60%;" src="{% static 'images/favicon.ico' %}" alt="">
+         </div>
+         <div class="chat__title">
+            <h5>{{settings.company_name}}</h5>
+            <p>{% trans 'mesajınız bir gün ərzində cavablandırılacaqdır' %}</p>
+         </div>
+         <div class="chat_box_close">
+            <i class="fas fa-times" aria-hidden="true"></i>
+         </div>
+      </div>
+      <div class="whatsapp_chatbox_body">
+         <div class="message__box">
+            <p style="margin: 0;">{{settings.company_name}}</p>
+            <p>{% trans 'Salam' %} 👋</p>
+            <p>{% trans 'Sizə necə kömək edə bilərik' %} ?</p>
+            <span class="message__time">20 : 51</span>
+         </div>
+      </div>
+      <div class="whatsapp_chatbox_footer">
+         <a href="{{ settings.whatsapp_address }}" target="_blank">{% trans 'Söhbətə başla' %}<i class="fab fa-whatsapp"
+               aria-hidden="true"></i></a>
+      </div>
+   </div>
+   <!--Whatsapp end-->
+
+{% block content %}
+{% endblock content%}
+
+ <!--=================================
+         Footer-->
+         <footer id="pt-footer">
+            <div class="pt-footer-style-1">
+               <div class="pt-footer-top">
+                  <div class="container">
+                     <div class="row">
+                        <div class="col-lg-3 col-md-6">
+                           <div class="footer-logo">
+                              <div class="row">
+                                 <div class="col-sm-12">
+                                    {% if settings.footer_logo %}
+                                       <img class="img-fluid pt-footer-logo" src="{{ settings.footer_logo.url }}" alt="logo-white">
+                                    {% endif %}
+                                    <p class="text-white">{{settings.footer_text|safe}}
+                                    </p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                           <div class="pt-footer1">
+                              <h4 class="footer-title text-white">{% trans 'Useful links' %}</h4>
+                              <div class="menu-footer-menu-container">
+                                 <ul id="menu-footer-menu" class="menu">
+                                    {% for element in navbar %}
+                                        {% if element.title != "Home" %}
+                                            <li>
+                                                <a href="{{element.url}}">{{element.title}}</a>
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-3  col-md-6 ">
+                           <div class="pt-footer1-menu pt-footer1">
+                              <h4 class="footer-title">{% trans 'Our service' %}</h4>
+                              <div class="list-inline pt-footer1-menu">
+                                 <ul class="pt-service">
+                                    {% for service in services|slice:":6" %}
+                                        <li>
+                                            <a href="{{service.url}}">
+                                                {{service.title}} </a>
+                                        </li>
+                                    {% endfor %}
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-3  col-md-6">
+                           <div class="pt-footer2">
+                              <h4 class="footer-title text-white">{% trans 'Our Contact' %}</h4>
+                              <div class="row">
+                                 <div class="col-sm-12">
+                                    <ul class="pt-contact pt-2">
+                                       <li>
+                                          <i class="fas fa-map-marker-alt"></i>
+                                          <span class="text-white">
+                                             {{settings.address}} </span>
+      
+                                       </li>
+                                       <li class="pt-3">
+                                          <a href="tel:{{settings.phone}}" style="white-space: nowrap;">
+                                             <i class="fa fa-phone"></i>
+                                             <span class="text-white">{{settings.phone}}</span>
+                                          </a>
+                                       </li>
+                                       <li class="pt-3">
+                                          <a href="mailto:{{settings.email}}"><i class="fa fa-envelope"></i><span
+                                                class="text-white">{{settings.email}}</span></a>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="pt-copyright-footer">
+                  <div class="container">
+                     <div class="row flex-row-reverse">
+                        <div class="col-md-6 text-right align-self-center">
+                           <span class="pt-copyright"><a target="_blank" href="{% url 'core:services' %}"> {% trans 'Copyright' %} 2020 {{settings.company_name}}
+                                 {% trans 'All Rights Reserved' %}.</a></span>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="pt-footer-social">
+                              <ul>
+                                 <li><a href="{{ settings.facebook_address }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+      
+                                 <li><a href="{{ settings.instagram_address }}" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </footer>
+         <!--=================================
+               Footer-->
+         <!--=================================
+               Back To Top-->
+         <div id="back-to-top">
+            <a class="topbtn" id="top" href="#top"> <i class="ion-ios-arrow-up"></i> </a>
+         </div>
+         <!--=================================
+               Back To Top-->
+         <!--=================================
+               Javascript -->
+         <!-- JS jquery-3.4.1.min -->
+         <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+         <!-- JS popper -->
+         <script src="{% static 'js/popper/popper.min.js' %}"></script>
+         <!-- JS bootstrap -->
+         <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+         <!--  JS owl-carousel-->
+         <script src="{% static 'js/owl-carousel/owl.carousel.min.js' %}"></script>
+         <!-- JS block-anime -->
+         <script src="{% static 'js/block-anime/block-anime.min.js' %}"></script>
+         <script src="{% static 'js/block-anime/block-scrollMonitor.js' %}"></script>
+         <script src="{% static 'js/block-anime/block-main.js' %}"></script>
+         <!--  JS anime.min-->
+         <script src="{% static 'js/anime.min.js' %}"></script>
+         <!--  JS circle-progress.min-->
+         <script src="{% static 'js/circle-progress.min.js' %}"></script>
+         <!--  JS imagesloaded.pkgd.min-->
+         <script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+         <!--  JS isotope.pkgd.min-->
+         <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+         <!--  JS jquery.countTo-->
+         <script src="{% static 'js/jquery.countTo.js' %}"></script>
+         <!--  JS jquery.magnific-popup.min-->
+         <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+         <!--  JS tox-progress-->
+         <script src="{% static 'js/tox-progress.js' %}"></script>
+         <!-- WOW JS FILES -->
+         <script src="{% static 'js/wow.min.js' %}"></script>
+         <!-- REVOLUTION JS FILES -->
+         <script src="{% static 'rev-slider/js/rbtools.min.js' %}"></script>
+         <script src="{% static 'rev-slider/js/rs6.min.js' %}"></script>
+         <script src="{% static 'js/rev-custom.js' %}"></script>
+         <!-- js custom-->
+         <script src="{% static 'js/custom.js' %}"></script>
+         <script src="{% static 'js/whatsapp.js' %}"></script>
+        <script>
+            const dropdownMenu = document.querySelector(".dropdown-menu");
+            const dropdownToggle = document.querySelector(".dropdown-toggle");
+            [...dropdownMenu.children].map(item=>{
+                    item.addEventListener('click',()=>{
+                        dropdownToggle.innerHTML = item.innerHTML
+                    })
+            });
+            const dropdownMenuMobile = document.querySelector(".dropdown-menu-mobile");
+            const dropdownToggleMobile = document.querySelector(".dropdown-toggle-mobile");
+            [...dropdownMenuMobile.children].map(item=>{
+                    item.addEventListener('click',()=>{
+                        dropdownToggleMobile.innerHTML = item.innerHTML
+                    })
+            });
+        </script>
+         
+         {% block js %}
+         {% endblock js %}
+      </body>
+      
+      </html>

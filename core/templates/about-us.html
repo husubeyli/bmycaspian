@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+   <!--=================================
+         Banner -->
+   <section class="pt-breadcrumb">
+      <div class="pt-bg-overley pt-opacity4" style="background-image: url('{{static.6.get_image_1_url}}');"></div>
+      <div class="container">
+         <div class="row">
+            <div class="col-sm-12">
+               <h1 class="pt-breadcrumb-title">{{static.6.title}}</h1>
+               <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                     <li class="breadcrumb-item"><a href="{% url 'core:index' %}"><i class="fas fa-home mr-2"></i>{% trans 'Home' %}</a></li>
+                     <li class="breadcrumb-item active" aria-current="page">{% trans 'About us' %}</li>
+                  </ol>
+               </nav>
+            </div>
+         </div>
+      </div>
+   </section>
+   <!--=================================
+         Banner -->
+   <!--=================================
+         About us -->
+   <section class="about-us">
+      <div class="container">
+         <div class="row d-flex align-items-center">
+            <div class="col-xl-6  col-12 text-center">
+               <div id="44c61" class="content__image-wrap content__image-wrap--half" data-color="#FF631B"
+                  data-direction="lr">
+                  <img class="img-fluid" src="{{static.7.get_image_1_url}}" alt="demo-img">
+               </div>
+            </div>
+            <div class="col-xl-6 col-12 mt-4">
+               <div class="pt-section-title-box text-left">
+                  <span class="pt-section-sub-title">{{static.7.surtitle|safe}}</span>
+                  <h2 class="pt-section-title">{{static.7.title|safe}}</h2>
+                  <p class="pt-section-description">{{static.7.subtitle|safe}}
+                  </p>
+                  <ul class="icon-list-items mt-4 mt-lg-5">
+                  {% for bullet in static.7.bullets_points.all %}
+                     <li class="icon-list-item">
+                        <span class="icon-list-icon">
+                           <i aria-hidden="true" class="fas fa-check"></i>
+                        </span>
+                        <span class="icon-list-text">{{bullet}}</span>
+                     </li>
+                  {% endfor %}
+                  </ul>
+               </div>
+               <div class="row">
+                  {% if about_contents.signature %}
+                     <div class="col-4 col-md-3">
+                        <img class="img-fluid sign-img" src="{{ about_contents.signature.url }}" alt="demo-img">
+                     </div>
+                  {% endif %}
+                  <div class="col-8 col-md-9">
+                     <div class="image-box-content">
+                        {% if about_contents.author_fullname %}
+                           <h4 class="elementor-image-box-title">{{ about_contents.author_fullname }}</h4>
+                        {% endif %}
+                        {% if about_contents.author_position %}
+                           <p class="elementor-image-box-description">{{ about_contents.author_position }}</p>
+                        {% endif %}
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+   </section>
+   <!--=================================
+         About us-->
+   <!--=================================
+         Video Section -->
+   <section class=" video pt-bg-dark  section-style">
+      <div class="pt-bg-overley pt-opacity1" style="background-image: url({{settings.promotion_video_image.url}});">
+      </div>
+      <div class="container">
+         <div class="row d-flex justify-content-center">
+            <div class="col-12 pb-5"></div>
+            <div class="col-lg-4 text-center py-5">
+               <div class="pt-popup-video-block">
+                  <div class="pt-video-icon">
+                     <a href="https://www.youtube.com/watch?v=XHOmBV4js_E" class="pt-video popup-youtube">
+                        <i aria-hidden="true" class="ion ion-play"></i></a>
+                  </div>
+               </div>
+            </div>
+            <div class="col-12 pt-5"></div>
+         </div>
+      </div>
+      <div class="pt-section-big-title bottom text-center wow animate__fadeInUp" data-wow-duration="1s"
+         data-wow-delay="1s">
+         <h2 class="big-heading-title">{% trans 'Watch Our Video' %}</h2>
+      </div>
+   </section>
+   <!--=================================
+         Video Section -->
+
+   <!--=================================
+         Team -->
+   <section class="team">
+      <div class="container-pt">
+         <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8 text-center">
+               <div class="pt-big-title mt-4">
+                  <h2 class="pt-big-title1 ">{% trans 'challenger' %}</h2>
+               </div>
+               <div class="pt-section-title-box">
+                  <span class="pt-section-sub-title">{{static.8.surtitle|safe}}</span>
+                  <h2 class="pt-section-title">{{static.8.title|safe}}</h2>
+                  <p class="pt-section-description">{{static.8.subtitle|safe}}
+                  </p>
+               </div>
+            </div>
+            <div class="col-lg-2"></div>
+         </div>
+      </div>
+      <div class="container-pt">
+         <div class="row mt-4 mt-lg-5">
+            <div class="col-sm-12">
+               <div class="owl-carousel owl-loaded owl-drag" data-dots="false" data-nav="false" data-desk_num="4"
+                  data-lap_num="3" data-tab_num="2" data-mob_num="1" data-mob_sm="1" data-autoplay="true"
+                  data-loop="true" data-margin="30">
+                  {% for teammember in teammembers %}
+                  <div class="item">
+                     <div class="pt-team-box text-center">
+                        <div class="pt-team-img">
+                           <img class="img-fluid" src="{{teammember.image.url}}" alt="team-image">
+                           <div class="pt-team-social">
+                              <ul>
+                                 {% for social in teammember.socials.all %}
+                                 <li>
+                                    <a href="{{social.url}}"><i class="{{social.icon}}"></i></a>
+                                 </li>
+                                 {% endfor %}
+                              </ul>
+                           </div>
+                        </div>
+                        <div class="pt-team-info">
+                           <span class="pt-team-designation">{{teammember.position}}</span>
+                           <h5><a class="pt-member-name">{{teammember.full_name}}</a></h5>
+                        </div>
+                     </div>
+                  </div>
+                  {% endfor %}
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <!--=================================
+         Team -->
+{% endblock %}
+   

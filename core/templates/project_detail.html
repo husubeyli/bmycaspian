@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+    <!--=================================
+         Banner -->
+    <section class="pt-breadcrumb">
+        <div class="pt-bg-overley pt-opacity4" style="background-image: url({{static.17.get_image_1_url}});"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 class="pt-breadcrumb-title">{{static.17.title}}</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'core:index' %}"><i class="fas fa-home mr-2"></i>{% trans 'Home' %}</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">{% trans 'Our Projects' %}</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--=================================
+         Banner -->
+    <!--=================================
+         Blog -->
+    <section class="blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mb-5 mb-lg-0">
+                    <div class="pt-blog-post mb-4">
+                        <div class="pt-post-media">
+                            <img class="img-fluid" src="{{project_detail.image.url}}" alt="">
+                        </div>
+                        <div class="pt-blog-contain">
+                            <div class="pt-post-meta">
+                                <ul>
+                                    <li class="pt-post-meta">
+                                        <i class="fa fa-calendar"></i>{{project_detail.created_at|date:"d F"}}
+                                    </li>
+                                    <li class="pt-post-tag">
+                                        {% for pr in  project_detail.tags.all %}
+                                        <i class="fa fa-tag"></i>{{pr.title}}
+                                        {% endfor %}
+                                    </li>
+                                </ul>
+                            </div>
+
+                            {{project_detail.description|safe}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="sidebar">
+                        <div id="categories-2" class="widget widget_categories">
+                            <h2 class="widget-title">{% trans 'Products' %}</h2>
+                            <ul>
+                                {% for product in products %}
+                                <li class="cat-item cat-item-2"><a href="{% url 'core:product-detail' slug=product.slug %}">{{ product.name }}</a>
+                                </li>
+                                {% endfor %}
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--=================================
+         Blog -->
+
+{% endblock %}

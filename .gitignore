@@ -1,0 +1,14 @@
+pgdb/
+.idea/
+media/
+.venv
+db.sqlite3
+*.pyc
+localhost/
+.vscode
+.DS_Store
+
+data/
+# locale/
+
+support_tasks.txt

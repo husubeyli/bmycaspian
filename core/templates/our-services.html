@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+   <!--=================================
+         Banner -->
+   <section class="pt-breadcrumb">
+      <div class="pt-bg-overley pt-opacity4" style="background-image: url('{{static.9.get_image_1_url}}');"></div>
+      <div class="container">
+         <div class="row">
+            <div class="col-sm-12">
+               <h1 class="pt-breadcrumb-title">{{static.9.title}}</h1>
+               <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                     <li class="breadcrumb-item"><a href="{% url 'core:index' %}"><i class="fas fa-home mr-2"></i>{% trans 'Home' %}</a></li>
+                     <li class="breadcrumb-item active" aria-current="page">{% trans 'Our-Services' %}</li>
+                  </ol>
+               </nav>
+            </div>
+         </div>
+      </div>
+   </section>
+   <!--=================================
+         Banner -->
+   <!--=================================
+         Service-->
+   <section class="service">
+      <div class="pt-bg-overley1" style="background-image: url('images/bg/03.png');"></div>
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-xl-6 text-center">
+               <div class="pt-big-title mt-4">
+                  <h2 class="pt-big-title1  wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="1s">{% trans 'SERVICES' %}
+                  </h2>
+               </div>
+               <div class="pt-section-title-box">
+                  <span class="pt-section-sub-title">{{static.10.surtitle|safe}}</span>
+                  <h2 class="pt-section-title">{{static.10.title|safe}}</h2>
+                  <p class="pt-section-description">{{static.10.subtitle|safe}}
+                  </p>
+               </div>
+            </div>
+            <div class="col-lg-3"></div>
+         </div>
+         <div class="row">
+            {% for service in services %}
+            <div class="col-md-6 col-xl-4">
+               <div class="icon-box text-center">
+                  <div class="icon-box-icon">
+                     <img src="{{service.icon.url}}" width="50">
+                  </div>
+                  <div class="icon-box-content">
+                     <a href="{% url 'core:services-detail' service.id %}"><h3 class="icon-box-title">{{service.title}}</h3></a>
+                     <p class="icon-box-description"><small>{{service.description|safe|truncatechars:200}}</small>
+                     </p>
+                  </div>
+               </div>
+            </div>
+            {% endfor %}
+         </div>
+      </div>
+   </section>
+   <!--=================================
+            Service-->
+
+{% endblock %}

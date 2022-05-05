@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+   <!--=================================
+         Banner -->
+      <section class="pt-breadcrumb">
+      <div class="pt-bg-overley pt-opacity4" style="background-image: url('{{static.18.get_image_1_url}}');"></div>
+      <div class="container">
+         <div class="row">
+            <div class="col-sm-12">
+               <h1 class="pt-breadcrumb-title">{{static.18.title}}</h1>
+               <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                     <li class="breadcrumb-item"><a href="{% url 'core:index' %}"><i class="fas fa-home mr-2"></i>{% trans 'Home' %}</a></li>
+                     <li class="breadcrumb-item active" aria-current="page">{% trans 'Our-Products' %}</li>
+                  </ol>
+               </nav>
+            </div>
+         </div>
+      </div>
+   </section>
+   <!--=================================
+         Banner -->
+
+   <!--=================================
+         Recent Projects -->
+
+    <section class="recent-projects pt-bg-dark section-style wow animate__fadeIn" data-wow-delay="0.2s">
+      <div class="pt-bg-overley1" style="background-image: url({% static 'images/bg/01.png' %});"></div>
+      <div class="container">
+         <div class="row">
+            <div class="col-xl-6 z-index-1">
+               <div class="pt-section-title-box text-xl-left text-center  mb-md-0">
+                  <span class="pt-section-sub-title text-white border-white">{{static.18.surtitle|safe}}</span>
+                  <h2 class="pt-section-title text-white">{{static.18.title|safe}}</h2>
+                  <p class="pt-section-description text-white">{{static.18.subtitle|safe}}
+                  </p>
+               </div>
+            </div>
+            <div class="col-xl-6 d-xl-flex justify-content-xl-end align-items-center text-center">
+               <div class="pt-btn-container">
+                  <a class="pt-button pt-btn-flat pt-bg-primary " href="{% url 'core:products' %}">
+                     <div class="pt-button-block">
+                        <span class="pt-button-line-left"></span>
+                        <span class="pt-button-text">{% trans 'View More' %}</span>
+                        <span class="pt-button-line-right"></span>
+                        <i class="ion ion-android-arrow-dropright pt-btn-icon"></i>
+                     </div>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+     <div class="container-pt pt-4">
+         <div class="row">
+            <div class="col-sm-12">
+               <div class="row">
+                {% for pr in products  %}
+                   <div class="col-sm-12 col-md-3">
+                   <div class="item">
+                     <div class="pt-portfolio-block">
+                        <div class="pt-portfolio-img">
+                           <img class="img-fluid" src="{{ pr.image.url }}" alt="">
+                           <a href="{% url 'core:product-detail' slug=pr.slug %}">
+                              <div class="pt-portfolio-icon">
+                                 <i class="ion ion-android-add"></i>
+                              </div>
+                           </a>
+                        </div>
+                        <div class="pt-portfolio-info">
+                            {% for p in pr.project_id.all %}
+                           <span>Product: {{ p.title }}</span>
+                                {% endfor %}
+                           <h4 class="pt-portfolio-title">
+                              <a class="text-white" href="{% url 'core:product-detail' slug=pr.slug %}">{{ pr.name }}</a>
+                           </h4>
+                        </div>
+                     </div>
+                  </div>
+                   </div>
+                   {% endfor %}
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="container-pt pt-5">
+         <div class="row">
+            <div class="col-sm-12">
+               <div class="row">
+                  {% for pr in products  %}
+                   <div class="col-sm-12 col-md-3">
+                        <div class="item">
+                     <div class="pt-portfolio-block">
+                        <div class="pt-portfolio-img">
+                           <img class="img-fluid" src="{{ pr.image.url }}" alt="">
+                           <a href="{% url 'core:product-detail' slug=pr.slug %}">
+                              <div class="pt-portfolio-icon">
+                                 <i class="ion ion-android-add"></i>
+                              </div>
+                           </a>
+                        </div>
+                        <div class="pt-portfolio-info">
+                            {% for p in pr.project_id.all %}
+                           <span>{% trans 'Product' %}: {{ p.title }}</span>
+                                {% endfor %}
+                           <h4 class="pt-portfolio-title">
+                              <a class="text-white" href="{% url 'core:product-detail' slug=pr.slug %}">{{ pr.name }}</a>
+                           </h4>
+                        </div>
+                     </div>
+                  </div>
+                   </div>
+                   {% endfor %}
+               </div>
+            </div>
+         </div>
+      </div>
+
+   </section>
+   <!--=================================
+         Recent Projects -->
+
+{% endblock content %}

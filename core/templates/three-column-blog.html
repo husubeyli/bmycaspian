@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+   <!--=================================
+         Banner -->
+   <section class="pt-breadcrumb">
+      <div class="pt-bg-overley pt-opacity4" style="background-image: url('{{static.14.get_image_1_url}}');"></div>
+      <div class="container">
+         <div class="row">
+            <div class="col-sm-12">
+               <h1 class="pt-breadcrumb-title">{{static.14.title}}</h1>
+               <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                     <li class="breadcrumb-item"><a href="{% url 'core:index' %}"><i class="fas fa-home mr-2"></i>{% trans 'Home'  %}</a></li>
+                     <li class="breadcrumb-item active" aria-current="page">{% trans 'Three column blog' %}</li>
+                  </ol>
+               </nav>
+            </div>
+         </div>
+      </div>
+   </section>
+   <!--=================================
+         Banner -->
+   <!--=================================
+         Blog -->
+   <section class="blog">
+      <div class="container">
+         <div class="row pt-blog-col-3">
+            {% for new in news %}
+            <div class="col-lg-4 col-md-6">
+               <div class="pt-blog-post mb-4">
+                  <div class="pt-post-media">
+                     <img class="img-fluid" src="{{new.image.url}}" alt="">
+                  </div>
+                  <div class="pt-blog-contain">
+                     <div class="pt-post-meta">
+                        <ul>
+                           <li class="pt-post-meta">
+                              <a href="#"><i class="fa fa-calendar"></i>{{new.created_at|date:"d F"}}</a>
+                           </li>
+                           <li class="pt-post-tag">
+                              <a href="#"><i class="fa fa-tag"></i>{{new.category}}</a>
+                           </li>
+                        </ul>
+                     </div>
+                     <h5 class="pt-blog-title">
+                        <a href="{% url 'core:news-detail' new.slug %}">{{new.title}}</a>
+                     </h5>
+                     <p>{{new.description|safe|truncatechars:255}}
+                     </p>
+                     <div class="pt-btn-container">
+                        <a href="{% url 'core:news-detail' new.slug %}" class="pt-button pt-btn-flat pt-button-dark">
+                           <div class="pt-button-block">
+                              <span class="pt-button-line-left"></span>
+                              <span class="pt-button-text">{% trans 'Read More' %}</span>
+                              <span class="pt-button-line-right"></span>
+                              <i class="ion ion-android-arrow-dropright pt-btn-icon"></i>
+                           </div>
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            {% endfor %}
+         </div>
+
+{% if news.has_other_pages %}
+         <div class="row mt-4 mt-lg-5">
+            <div class="col-sm-12">
+               <div class="pt-pagination">
+                  <nav aria-label="Page navigation">
+                     <ul class="page-numbers">
+                        {% if news.has_previous %}
+                        <li><a class="next page-numbers" href="?page={{ news.previous_page_number }}">{% trans 'Previous page' %}</a></li>
+                        {% endif %}
+
+                        {% for i in news.paginator.page_range %}
+                           {% if news.number == i %}
+                              <li><span aria-current="page" class="page-numbers current">{{ i }}</span></li>
+                           {% else %}
+                              <li><span aria-current="page" class="page-numbers"><a href="?page={{ i }}">{{ i }}</a></span></li>
+                           {% endif%}
+                        {% endfor %}
+                        
+                        {% if news.has_next %}
+                        <li><a class="next page-numbers" href="?page={{ news.next_page_number }}">{% trans 'Next page' %}</a></li>
+                        {% endif %}
+                     </ul>
+                  </nav>
+               </div>
+            </div>
+{% endif %}
+
+         </div>
+      </div>
+   </section>
+   <!--=================================
+         Blog -->
+
+{% endblock content %}
+  
